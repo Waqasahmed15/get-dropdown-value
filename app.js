@@ -101,32 +101,32 @@ let students = [
 ];
 
 var dropdownNode = document.getElementById("dropdown");
-// console.log(dropdownNode.value);
+for (i = 0; i < students.length; i++) {
+  dropdownNode.innerHTML += `<option value="${students[i].id}">${students[i].id}</option>
+  `;
+}
 dropdownNode.addEventListener("change", function () {
-  var rollNumSelect = dropdownNode.value;
-  console.log(dropdownNode);
-  // for (var i = 0; i < students.length; i++) {
-  //   if (students[i].id === parseInt(rollNumSelect)) {
-  //     console.log("ok");
-  //     dropdownNode.innerHTML += `<option value="${students[i].id}">${students[i].id}</option>
-  //   `;
-  //   }
-  // }
+  let rollNumSelect = dropdownNode.value;
+  for (let i = 0; i < students.length; i++) {
+    if (+rollNumSelect === students[i].id) {
+      var showNode = document.getElementById("show");
+      showNode.innerHTML = `<h1>Students Details</h1>
+      <h3>Name: ${students[i].details.name1}</h3>
+      <h3>age: ${students[i].details.age}</h3>
+      <h3>course: ${students[i].details.course}</h3>`;
+    }
+  }
 });
 var cityNode = document.getElementById("city");
-
 for (i = 0; i < students.length; i++) {
   cityNode.innerHTML += `<option value="${students[i].details.city}">${students[i].details.city}</option>
   `;
 }
 cityNode.addEventListener("change", function () {
   let selectCity = cityNode.value;
-
   for (let i = 0; i < students.length; i++) {
     if (selectCity === students[i].details.city) {
       var showNode = document.getElementById("show");
-      // showNode.innerHTML = "";
-
       showNode.innerHTML = `<h1>Students Details</h1>
       <h3>Name: <span id="name">${students[i].details.name1}</span></h3>
       <h3>age: <span id="age">${students[i].details.age}</span></h3>
