@@ -110,6 +110,8 @@ dropdownNode.addEventListener("change", function () {
   for (let i = 0; i < students.length; i++) {
     if (+rollNumSelect === students[i].id) {
       var showNode = document.getElementById("show");
+      showNode.classList.add("card");
+
       showNode.innerHTML = `<h1>Students Details</h1>
       <h3>Name: ${students[i].details.name1}</h3>
       <h3>age: ${students[i].details.age}</h3>
@@ -127,6 +129,7 @@ cityNode.addEventListener("change", function () {
   for (let i = 0; i < students.length; i++) {
     if (selectCity === students[i].details.city) {
       var showNode = document.getElementById("show");
+      showNode.classList.add("card");
       showNode.innerHTML = `<h1>Students Details</h1>
       <h3>Name: <span id="name">${students[i].details.name1}</span></h3>
       <h3>age: <span id="age">${students[i].details.age}</span></h3>
